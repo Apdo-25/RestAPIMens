@@ -3,8 +3,13 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 
-// product routes
+// import routes
 const AudiRoutes = require("./routes/audi");
+const authRoutes = require("./routes/auth");
+
+
+
+
 
 require("dotenv-flow").config();
 
@@ -30,6 +35,9 @@ app.get("/api/home", (req, res) => {
 
 // post, put, delete
 app.use("/api/audis", AudiRoutes);
+app.use("/api/user", authRoutes);
+
+
 
 
 

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const AudiProduct = require("../models/audi");
 
 
-// CRUD operations for products
+// CRUD operations 
 
 // create a new product
 router.post("/", (req, res) => {
