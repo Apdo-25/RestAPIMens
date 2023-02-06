@@ -44,7 +44,7 @@ router.get("/:id", (req, res) => {
 
 
 
-// update specific products
+// update specific Audis by id
 
 router.put("/:id", (req, res) => {
 
