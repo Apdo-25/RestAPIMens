@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const AudiProduct = require("../models/audi");
+const { verifyToken } = require('../validation');
+
 
 
 // CRUD operations 
 
 // create a new product
-router.post("/", (req, res) => {
+router.post("/", verifyToken, (req, res) => {
 
   data = req.body;
 
@@ -45,8 +47,7 @@ router.get("/:id", (req, res) => {
 
 
 // update specific Audis by id
-
-router.put("/:id", (req, res) => {
+router.put("/:id", verifyToken, (req, res) => {
 
   const id = req.params.id;
 
@@ -67,7 +68,7 @@ router.put("/:id", (req, res) => {
 });
 
 // delete specific products
-router.delete("/:id", (req, res) => {
+router.delete("/:id", verifyToken, (req, res) => {
 
   const id = req.params.id;
 

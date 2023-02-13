@@ -3,12 +3,18 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 
+//swagger
+const swaggerUI = require("swagger-ui-express");
+const yaml = require("yamljs");
+
+//swagger setup
+const swaggerDocument = yaml.load("./swagger.yaml");
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+
+
 // import routes
 const AudiRoutes = require("./routes/audi");
 const authRoutes = require("./routes/auth");
-
-
-
 
 
 require("dotenv-flow").config();
