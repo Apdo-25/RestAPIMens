@@ -6,7 +6,9 @@ const jwt = require('jsonwebtoken'); //jsonwebtoken for token generation
 
 
 const {registerValidation, loginValidation} = require('../validation'); //User validation
-const {application} = require('express');
+const { application } = require('express');
+
+
 
 //Registration Route
 router.post('/register', async (req, res) => {
@@ -93,6 +95,7 @@ router.post('/login', async (req, res) => {
   })
  
 });
- 
 
+
+//export router
 module.exports = router;
