@@ -2,9 +2,6 @@ const Joi = require('joi');
 const jwt = require('jsonwebtoken');
 
 
-
-
-
 //Register validation
 const registerValidation = (data) => {
   const schema = Joi.object({
