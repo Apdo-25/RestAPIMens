@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Audi Rest API
+  title: Car Rest API
   description: MongoDB ExpressJS NodeJS REST API
   version: 1.0.0
 servers:
@@ -14,7 +14,7 @@ components:
       name: auth-token
 
   schemas:
-    Product:
+    Car:
       type: object
       properties:
         id:
@@ -98,23 +98,23 @@ paths:
                   data:
                     type: string
 
-  /audis:
+  /cars:
     get:
-      summary: Retrieves a list of Products
-      description: Retrieves a list of products as JSON objects.
+      summary: Retrieves a list of cars
+      description: Retrieves a list of cars as JSON objects.
       responses:
         200:
-          description: A list of product JSON objects in an array.
+          description: A list of car JSON objects in an array.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Product"
+                  $ref: "#/components/schemas/Car"
 
     post:
-      summary: Create a new Product
-      description: Create a new Product
+      summary: Create a new Car
+      description: Create a new Car
       security:
         - ApiKeyAuth: []
       requestBody:
@@ -122,20 +122,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Product"
+              $ref: "#/components/schemas/Car"
 
       responses:
         201:
-          description: Product created succesfully
+          description: Car created succesfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Product"
+                $ref: "#/components/schemas/Car"
 
-  /audis/{id}:
+  /cars/{id}:
     get:
-      summary: Specific Product
-      description: Retrieves a specific Product based on it id.
+      summary: Specific car
+      description: Retrieves a specific Car based on it id.
       parameters:
         - in: path
           name: id
@@ -145,17 +145,17 @@ paths:
             type: string
       responses:
         200:
-          description: A Product in the format of a JSON object.
+          description: A Car in the format of a JSON object.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Product"
+                  $ref: "#/components/schemas/Car"
 
     put:
-      summary: Updates a specific Product
-      description: Updates a specific Product based on it id
+      summary: Updates a specific Car
+      description: Updates a specific Car based on it id
       security:
         - ApiKeyAuth: []
       parameters:
@@ -170,19 +170,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Product"
+              $ref: "#/components/schemas/Car"
 
       responses:
         201:
-          description: Product updated succesfully
+          description: Car updated succesfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Product"
+                $ref: "#/components/schemas/Car"
 
     delete:
-      summary: Deletes a specific Product
-      description: Deletes a specific Product based on it id
+      summary: Deletes a specific Car
+      description: Deletes a specific Car based on its id
       security:
         - ApiKeyAuth: []
       parameters:
@@ -195,8 +195,8 @@ paths:
 
       responses:
         201:
-          description: Product deleted succesfully
+          description: Car deleted succesfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Product"
+                $ref: "#/components/schemas/Car"
