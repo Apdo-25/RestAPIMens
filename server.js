@@ -13,7 +13,7 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 
 // import routes
-const AudiRoutes = require("./routes/audi");
+const carRoutes = require("./routes/routes");
 const authRoutes = require("./routes/auth");
 
 
@@ -21,6 +21,8 @@ require("dotenv-flow").config();
 
 // parse request - content type JSON
 app.use(bodyParser.json());
+
+mongoose.set('strictQuery', false);
 
 mongoose.connect(
 
@@ -35,16 +37,13 @@ mongoose.connection.once("open", () => console.log("Connected succesfully to Mon
 
 //routes
 app.get("/api/home", (req, res) => {
-  res.status(200).send({message: "Welcome to the Audi REST API homepage"})
+  res.status(200).send({message: "Welcome to the Car REST API homepage"})
 });
 
 
 // post, put, delete
-app.use("/api/audis", AudiRoutes);
+app.use("/api/cars", carRoutes);
 app.use("/api/user", authRoutes);
-
-
-
 
 
 const PORT = process.env.PORT || 4000;
