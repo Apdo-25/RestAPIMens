@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-let AudiSchema = new Schema(
+let carSchema = new Schema(
 {
   name: {type: String},
   model: {type: String},
@@ -14,4 +14,6 @@ let AudiSchema = new Schema(
 }
 );
 
-module.exports = mongoose.model("audi", AudiSchema);
+module.exports = mongoose.model("Car", carSchema);
+
+
