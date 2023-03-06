@@ -13,21 +13,5 @@ let userSchema = new Schema({
 
 
 
-// Virtual for user's full name
-userSchema
-.virtual('name')
-.get(function () {
-    return this.family_name + ', ' + this.first_name;
-});
-
-// Virtual for user's URL
-userSchema
-.virtual('url')
-.get(function () {
-    return '/catalog/user/' + this._id;
-});
-
-
-
 // Export the model
 module.exports = mongoose.model('User', userSchema);
