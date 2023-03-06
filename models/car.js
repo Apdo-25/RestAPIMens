@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+
+//schema for Car
 let carSchema = new Schema(
 {
   name: {type: String},
@@ -11,9 +13,7 @@ let carSchema = new Schema(
   price: {type: Number},
   inStock: {type: Boolean}
 
-}
-);
+});
+
 
 module.exports = mongoose.model("Car", carSchema);
-
-
