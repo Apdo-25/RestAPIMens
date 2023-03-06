@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
 
 });
 
-// find carss by instock status
+// find cars by instock status
 router.get("/inStock", (req, res) => {
 
   carProduct.find({inStock: false})
@@ -49,8 +49,10 @@ router.get("/:id", (req, res) => {
 // update specific cars by id
 router.put("/:id", verifyToken, (req, res) => {
 
+  
   const id = req.params.id;
 
+  // update specific car
   carProduct.findByIdAndUpdate(id, req.body)
   .then(data =>  { 
     
