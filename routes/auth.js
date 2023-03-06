@@ -6,7 +6,8 @@ const jwt = require('jsonwebtoken'); //jsonwebtoken for token generation
 
 
 const {registerValidation, loginValidation} = require('../validation'); //User validation
-const { application } = require('express');
+const { application } = require('express') //express
+
 
 
 
