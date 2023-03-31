@@ -9,7 +9,7 @@ const yaml = require("yamljs");
 
 //swagger setup
 const swaggerDocument = yaml.load("./swagger.yaml");
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+app.use("/api/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 
 // import routes
@@ -36,7 +36,7 @@ mongoose.connect(
 mongoose.connection.once("open", () => console.log("Connected succesfully to MongoDB"));
 
 //routes
-app.get("/api/home", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).send({message: "Welcome to the Car REST API homepage"})
 });
 
